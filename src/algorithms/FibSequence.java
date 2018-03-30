@@ -12,7 +12,7 @@ public static void main(String[] args) {
 	System.out.println(1);
 	fib.push(1);
 	Fib();
-	
+	//syn
 }
 static void Fib() {
 	Integer a;
