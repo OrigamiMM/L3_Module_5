@@ -11,25 +11,46 @@ public class RemovingStuffFromArrayLists {
 
 	public static void main(String[] args) {
 
-		class Stuff {
+		abstract class Stuff {
+			abstract boolean isDirt();
 		}
 		class Worm extends Stuff {
+
+			@Override
+			boolean isDirt() {
+				// TODO Auto-generated method stub
+				return false;
+			}
 		}
 		class Dirt extends Stuff {
+
+			@Override
+			boolean isDirt() {
+				// TODO Auto-generated method stub
+				return true;
+			}
 		}
 		ArrayList<Stuff> stuffIFoundInTheYard = new ArrayList<Stuff>();
-		stuffIFoundInTheYard.add(new Worm());
+		//stuffIFoundInTheYard.add(new Worm());
 		stuffIFoundInTheYard.add(new Dirt());
 		stuffIFoundInTheYard.add(new Dirt());
 		stuffIFoundInTheYard.add(new Dirt());
-		stuffIFoundInTheYard.add(new Worm());
+		//stuffIFoundInTheYard.add(new Worm());
 		stuffIFoundInTheYard.add(new Dirt());
 
 		System.out.println(stuffIFoundInTheYard.size());
-
 		/* TODO 1: Clean out the dirt but keep the delicious worms. */
+		for (int i = 0; i < stuffIFoundInTheYard.size(); i++) {
+			if (stuffIFoundInTheYard.get(i).isDirt()) {
+				System.out.println(i);
+				stuffIFoundInTheYard.remove(i);
+				i = i-1;
+			}
+		}
 
 		System.out.println(stuffIFoundInTheYard.size()); // should be 2
+System.out.println("   ");
+
 
 		ArrayList<Character> truth = new ArrayList<Character>();
 		truth.add('#');
@@ -56,8 +77,18 @@ public class RemovingStuffFromArrayLists {
 		truth.add('#');
 		truth.add('u');
 		truth.add('t');
-
+		
+//suns out gns out
+		
 		/* TODO 2: Remove the hash symbols and print out the truth. */
-
+for (int i = 0; i < truth.size(); i++) {
+	if (truth.get(i).equals('#')) {
+		truth.remove(i);
+		i = i-1;
+	}else {
+		System.out.println(truth.get(i));
 	}
+}
+	}
+
 }
