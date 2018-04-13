@@ -36,7 +36,7 @@ public class MurderOfCrows {
 			for (String string : contents) {
 				if (string.equals("diamond")) {
 					System.out.println(sCrow.getName());
-					System.out.println(nCrows + " crows died finding this Diamond");
+					System.out.println(nCrows + " crow(s) died finding this Diamond");
 					System.exit(0);
 				}
 			}
