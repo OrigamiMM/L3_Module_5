@@ -8,49 +8,41 @@ import java.util.Stack;
 import org.junit.Test;
 
 public class TestMatchingBrackets {
-	Stack<String> bracket;
+	Stack<Character> bracket;
 
 	@Test
 	public void testMatchingBrackets() {
 		assertTrue(doBracketsMatch("{}"));
 		assertTrue(doBracketsMatch("{{}}"));
 		assertTrue(doBracketsMatch("{}{}{{}}"));
-		assertFalse(doBracketsMatch("{{}"));
+		assertFalse(doBracketsMatch("{{{{{{{{{{}"));
 		assertFalse(doBracketsMatch("}{"));
 	}
 
 	// USE A STACK TO COMPLETE THE METHOD FOR CHECKING IF EVERY OPENING BRACKET HAS
 	// A MATCHING CLOSING BRACKET
 	private boolean doBracketsMatch(String b) {
-		bracket = new Stack<String>();
-		String bHold;
-		System.out.println("This method is being called");
-		for (int i = b.length() - 1; i > -1; i--) {
-			String brac = (String.valueOf(b.charAt(i)));
-			System.out.println(brac);
-			bracket.push(brac);
-		}
-
-		for (int i = 0; i < bracket.size(); i++) {
-			if (bracket.pop().equals("{")) {
-				for (int j = 0; j < bracket.size(); j++) {
-					bHold = bracket.pop();
-					if (bHold.equals("{")) {
-						bracket.push(bHold);
-					}
+		bracket = new Stack<Character>();
+		System.out.println("the method is being called");
+		for (int i = 0; i < b.length(); i++) {
+			System.out.println(b.charAt(i));
+			if (b.charAt(i) == '}') {
+				if (bracket.isEmpty()) {
+					return false;
+				} else {
+					bracket.pop();
 				}
 			} else {
-				return false;
+				bracket.push(b.charAt(i));
 			}
+
 		}
-		if (bracket.size() == 0) {
-			System.out.println("It matches");
+		if (bracket.isEmpty()) {
 			System.out.println("");
 			return true;
+		} else {
+			return false;
 		}
-		System.out.println("something is wrong");
-		return false;
-
 	}
 
 }
