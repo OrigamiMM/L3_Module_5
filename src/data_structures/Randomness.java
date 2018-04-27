@@ -15,6 +15,5 @@ public class Randomness {
 	public static int randomInt() {
 		int num1 = new Random().nextInt(10);
 		return num1;
-
 	}
 }
